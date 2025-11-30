@@ -40,10 +40,9 @@ public final class JSNetworkParser {
   }
 
   private static int bytesUntil(byte[] bytes, int offset, int length, byte until) {
-    int counter = 0;
     for (int i = offset; i < length; i++) {
-      if (bytes[counter++] == until) {
-        return counter;
+      if (bytes[i] == until) {
+        return i - offset + 1;
       }
     }
     return -1;
